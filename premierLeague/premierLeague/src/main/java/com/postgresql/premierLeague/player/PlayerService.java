@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class PlayerService {
     private final PlayerRepository playerRepository;
     
@@ -35,7 +36,7 @@ public class PlayerService {
                 .filter(player -> player.getPos().toLowerCase().contains(searchText.toLowerCase()))
                 .collect(Collectors.toList());        
     }
-   
+
     public List<Player> getPlayersByNation(String searchText) {
         return playerRepository.findAll().stream()
                 .filter(player -> player.getNation().toLowerCase().contains(searchText.toLowerCase()))

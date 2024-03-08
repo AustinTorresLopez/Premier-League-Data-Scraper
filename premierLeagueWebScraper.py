@@ -55,7 +55,7 @@ for team_url in team_urls:
     # avoiding broadband issues
     time.sleep(5)
 
-print(team_data_subset.columns)
+print(all_teams)
 
 stat_df = pd.concat(all_teams)
 stat_df.to_csv("stats.csv", index = False)

@@ -3,46 +3,48 @@ package com.postgresql.premierLeague.player;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "player_stats")
+@Table(name = "player_statistic")
 public class Player {
     @Id
-    @SequenceGenerator(
-            name = "player_sequence",
-            sequenceName = "player_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-    strategy = GenerationType.SEQUENCE,
-            generator = "player_sequence"
-    )
+    @SequenceGenerator(name = "player_sequence", sequenceName = "player_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "player_sequence")
+    
+    @Column(name = "player_name")
     private String name;
-    
+    @Column(name = "nation")
     private String nation;
-    
+    @Column(name = "position")
     private String pos;
-    
+    @Column(name = "age")
     private Integer age;
-    
+    @Column(name = "matches_played")
     private Integer mp;
-    
+    @Column(name = "starts")
     private Integer starts;
-    
+    @Column(name = "minutes_played")
     private Double min;
-    
+    @Column(name = "assists")
     private Double ast;
-    
+    @Column(name = "goals")
+    private Double goals;
+    @Column(name = "penalties_scored")
     private Double pk;
-    
+    @Column(name = "yellow_cards")
     private Double crdy;
-    
+    @Column(name = "red_cards")
     private Double crdr;
-    
+    @Column(name = "expected_goals")
     private Double xg;
-    
+    @Column(name = "expected_assists")
     private Double xag;
-    
+    @Column(name = "team_name")
     private String team;
 
+    public Player() {
+    }
+    
+    
+    
     public Player(String name, String nation, String pos, Integer age, Integer mp, Integer starts, Double min, Double ast, Double pk, Double crdy, Double crdr, Double xg, Double xag, String team) {
         this.name = name;
         this.nation = nation;
@@ -110,6 +112,14 @@ public class Player {
 
     public Double getXag() {
         return xag;
+    }
+
+    public Double getGoals() {
+        return goals;
+    }
+
+    public void setGoals(Double goals) {
+        this.goals = goals;
     }
 
     public String getTeam() {
